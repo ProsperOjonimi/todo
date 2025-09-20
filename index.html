@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+    <title>To-do app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="theme-switch_container">
+        <img src="images/moon 1.png" alt="Theme switcher" class="dark-mode" />
+        <img src="images/sun 1.png" alt="theme switch" class="light-mode" />
+      </div>
+      <p class="header_text">My Tasks</p>
+      <div class="input-area">
+        <input
+          type="text"
+          placeholder="Type your task here..."
+          class="input-field"
+        />
+        <button class="btn add-task">+ Add</button>
+      </div>
+      <div class="tasks-navigation hidden">
+        <p class="tasks-nav_p">
+          <span class="nav_all-tasks">All</span> |<span
+            class="nav_active-tasks active-nav"
+          >
+            Active</span
+          >
+          |<span class="nav_completed-tasks active-nav"> Completed</span>
+        </p>
+        <p class="tasks-info_p">
+          <span class="tasks-remaining">2</span> tasks left
+        </p>
+      </div>
+      <div class="tasks-container">
+        <div class="tasks-proper">
+          <div class="task">
+            <div class="task-main">
+              <input type="checkbox" name="done" id="done" class="checkbox" />
+              <p>Learn React</p>
+            </div>
+            <div class="functional-icons">
+              <img src="images/pencil 1.svg" alt="pencil" class="pencil-icon" />
+              <img src="images/trash 1.svg" alt="trash" class="trash-icon" />
+            </div>
+          </div>
+          <div class="task task-done">
+            <div class="task-main">
+              <input type="checkbox" name="done" id="done" class="checkbox" />
+              <p>Prototyping To-Do List</p>
+            </div>
+            <div class="functional-icons">
+              <img src="images/pencil 1.svg" alt="pencil" class="pencil-icon" />
+              <img src="images/trash 1.svg" alt="trash" class="trash-icon" />
+            </div>
+          </div>
+          <img src="images/pencil 1.png" alt="" />
+          <div class="task">
+            <div class="task-main">
+              <input type="checkbox" name="done" id="done" class="checkbox" />
+              <p>Push to Github</p>
+            </div>
+            <div class="functional-icons">
+              <img src="images/pencil 1.svg" alt="pencil" class="pencil-icon" />
+              <img src="images/trash 1.svg" alt="trash" class="trash-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="task-container_empty">
+        <img
+          src="images/selfie.png"
+          alt="An image of a person taking a selfie"
+          class="selfie_img"
+        />
+        <p>
+          Empty as my motivation on Monday😅.<br />Let's start adding stuff!
+        </p>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Made with ❤️ by Nimi</p>
+    </footer>
+  </body>
+</html>
