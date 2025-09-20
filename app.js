@@ -199,6 +199,12 @@ class App {
         });
       }
       tasksEmpty.classList.add("hidden");
+      if (this.tasks.length <= 6) {
+        taskContainer.style.overflowY = "hidden";
+      }
+      if (this.tasks.length > 6) {
+        taskContainer.style.overflowY = "scroll";
+      }
     } else {
       taskContainer.classList.add("hidden");
       taskContainer.innerHTML = `
