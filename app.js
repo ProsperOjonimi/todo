@@ -13,8 +13,6 @@ const task = document.querySelectorAll(".task");
 const editBtns = document.querySelectorAll(".pencil-icon");
 const deleteBtns = document.querySelectorAll(".trash-icon");
 
-console.log(headerText);
-
 class App {
   tasks = [];
   isDarkMode = false;
@@ -35,13 +33,10 @@ class App {
     this.tasks.push(inputText);
     this.doneState.push(false);
     localStorage.setItem("doneState", JSON.stringify(this.doneState));
-    console.log(this.doneState);
     tasksEmpty.classList.add("hidden");
     taskContainer.classList.remove("hidden");
     // tasksNav.classList.remove("hidden");
     inputField.value = "";
-
-    console.log(this.tasks);
     this.tasks.forEach((e, idx) => {
       this._setlocalStorage();
 
@@ -54,34 +49,23 @@ class App {
       b.addEventListener("click", (e) => {
         const btnId = parseInt(b.getAttribute("data-id"));
         this.tasks.splice(btnId, 1);
-        console.log(this.#data);
         localStorage.setItem("tasks", JSON.stringify(this.tasks));
-        // this.#data.splice(btnId, 1);
-        console.log(this.tasks);
         this._renderTasks();
       });
     });
   }
   _mark(t) {
-    console.log("checkbox");
     const checkBox = t.querySelectorAll(".checkbox");
-    // let doneState = JSON.parse(localStorage.getItem("doneStates"));
-    console.log(checkBox);
-    // let doneStates = JSON.parse(localStorage.getItem("doneState"));
-
     checkBox.forEach((c, i) => {
       c.addEventListener("click", (e) => {
         if (c.checked) {
           c.closest(".task").classList.add("task-done");
-          console.log(parseInt(c.getAttribute("data-id")));
           this.doneState[parseInt(c.getAttribute("data-id"))] = true;
           localStorage.setItem("doneState", JSON.stringify(this.doneState));
-          console.log(this.doneState);
         } else {
           c.closest(".task").classList.remove("task-done");
           this.doneState[parseInt(c.getAttribute("data-id"))] = false;
           localStorage.setItem("doneState", JSON.stringify(this.doneState));
-          console.log(this.doneState);
         }
       });
     });
@@ -94,9 +78,6 @@ class App {
         // this.tasks.splice(btnEditId, 1);
         const newTask = prompt("Edit task");
         if (!newTask) return;
-        console.log(newTask);
-        console.log(btnEditId);
-        console.log(this.tasks[btnEditId]);
         this.tasks[btnEditId] = newTask;
         localStorage.setItem("tasks", JSON.stringify(this.tasks));
 
@@ -109,7 +90,6 @@ class App {
     if (this.isDarkMode) {
       themeSwitch.classList.add("hidden");
       lightSwitch.classList.remove("hidden");
-      console.log(themeSwitch);
       body.style.backgroundColor = "#101828";
       headerText.style.color = "#FFFFFF";
       addBtn.style.backgroundColor = "#4a5565";
@@ -143,9 +123,7 @@ class App {
     this.#data = JSON.parse(localStorage.getItem("tasks"));
 
     if (!this.#data) return;
-
     this.tasks = this.#data;
-    console.log(this.tasks);
     this._renderTasks();
   }
 
@@ -182,8 +160,6 @@ class App {
       const editBtns = document.querySelectorAll(".pencil-icon");
       const deleteBtns = document.querySelectorAll(".trash-icon");
       const p = document.querySelectorAll("p");
-
-      console.log(this.isDarkMode);
       if (this.isDarkMode) {
         task.forEach((t) => {
           t.style.backgroundColor = "#4a5565";
@@ -202,7 +178,7 @@ class App {
       if (this.tasks.length <= 6) {
         taskContainer.style.overflowY = "hidden";
       }
-      if (this.tasks.length > 6) {
+      if (this.tasks.length > 4) {
         taskContainer.style.overflowY = "scroll";
       }
     } else {
